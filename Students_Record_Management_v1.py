@@ -49,7 +49,19 @@ def top_student(students):
             age = student["age"]
             max_grades = student["grades"]
 
-    print(f" {name} - {age} - {grades}")
+    print(f" {name} - {age} - {max_grades}")
+
+
+def average_grades(students):
+    grades_sum = 0
+    count = 0
+    for student in students:
+        if student["grades"] >= 0:
+            grades_sum += student["grades"]
+            count += 1
+
+    avg_grades = grades_sum / count
+    print(f"Average grades: {avg_grades:.2f}")
 
 
 while True:
@@ -58,6 +70,7 @@ while True:
     print("2. View All Students Record.")
     print("3. Search for a Student record.")
     print("4. Show Top Student.")
+    print("5. Show average grades.")
     print("0. Exit System.")
 
     choice = int(input("Enter Number(0 - 5): "))
@@ -74,6 +87,9 @@ while True:
 
         case 4:
             top_student(students)
+
+        case 5:
+            average_grades(students)
 
         case 0:
             break
